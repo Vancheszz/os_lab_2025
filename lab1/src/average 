@@ -1,0 +1,21 @@
+#!/bin/bash 
+
+if [ $# - eq 0 ]; then 
+    echo "No args"
+    exit 1 
+fi 
+
+count = 0 
+sum = 0 
+
+for num in "$@"; do 
+    if ! [[ "$num" =~ ^[0-9]+$ ]]; then 
+        echo "$num not a num:/"
+        exit 1 
+    fi 
+    ((count++))
+    sum = $((sum+num))
+done
+
+avg = $(echo "scale = 2; $sum/$count" | bc ) #здесь scale для bc
+echo -e "Count of args $count\nSum is $sum\nAvg is $avg"

@@ -1,0 +1,36 @@
+//эммммммм ну да конечно капец 
+
+Общая команда для создания объектного файла 
+такс - ответы на следубющие вопросы
+I - include(.h)
+L - Library 
+-l связь программы и библиотеки 
+-shared - динамическая разделяемая библиотека 
+-с compile (but not link)
+-o out file 
+-fPIC код который можно загрузить в любую область памяти
+
+gcc -c revert_string.c 
+
+Static library 
+
+ar rcs librev.a revert_string.o
+
+Dynamic library 
+gcc -c -fPIC revert_string.c -o revert_string.o
+
+gcc -shared -o librevert_string.so revert_string.o
+
+Building whith Static library 
+
+gcc main.c librev.a -o static 
+
+Building with Dynamic Lib 
+
+gcc main.c -L. -lrevert_string -o dynamic_app
+(export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH)
+
+
+Testing 
+gcc -o tests tests.c -I. -L. -lrevert_string -lcunit
+

@@ -1,0 +1,6 @@
+#!/bin/bash 
+echo -e "\nDate is: "
+date
+echo -e "\nCurrent directory: "
+pwd 
+echo -e "\nPATH = $PATH"
